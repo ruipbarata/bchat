@@ -1,29 +1,7 @@
-# PostgreSQL. Versions 9.3 and up are supported.
-#
-# Install the pg driver:
-#   gem install pg
-# On macOS with Homebrew:
-#   gem install pg -- --with-pg-config=/usr/local/bin/pg_config
-# On macOS with MacPorts:
-#   gem install pg -- --with-pg-config=/opt/local/lib/postgresql84/bin/pg_config
-# On Windows:
-#   gem install pg
-#       Choose the win32 build.
-#       Install PostgreSQL and put its /bin directory on your path.
-#
-# Configure Using Gemfile
-# gem 'pg'
-#
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: <%= ENV["DB_USER"] %>
-  password: <%= ENV["DB_USER_PASSWORD"] %>
-  host: <%= ENV["DB_HOST"] { "localhost" } %>
-  port: <%= ENV["DB_PORT"] { "5432" } %>
-  url: <%= ENV["DB_URL"] %>
-  # socket: <%= ENV["DB_SOCKET"] { "/tmp/mysql.sock" } %>
-  pool: <%= ENV["RAILS_MAX_THREADS"] { 5 } %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
@@ -86,3 +64,5 @@ test:
 production:
   <<: *default
   database: bchat_production
+  username: myapp
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
