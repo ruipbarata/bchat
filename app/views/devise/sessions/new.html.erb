@@ -7,7 +7,7 @@
   </div>
 
   <div class="form-floating mb-3">
-    <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+    <%= f.password_field :password, class: "form-control", placeholder: t("devise.password") %>
     <%= f.label :password %>
   </div>
 
@@ -19,7 +19,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in", class: "w-100 btn btn-lg btn-primary" %>
+    <%= f.submit t("devise.log_in"), class: "w-100 btn btn-lg btn-primary" %>
   </div>
 <% end %>
 

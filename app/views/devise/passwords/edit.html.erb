@@ -5,20 +5,20 @@
   <%= f.hidden_field :reset_password_token %>
 
   <div class="field">
-    <%= f.password_field :password, autofocus: true, class: "form-control", placeholder: "New Password" %>
+    <%= f.password_field :password, autofocus: true, class: "form-control", placeholder: t("devise.new_password") %>
     <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <em>(<%= t("devise.minimum_characters", min: @minimum_password_length) %>)</em>
     <% end %>
-    <%= f.label :password, "New password" %>
+    <%= f.label :password, t("devise.new_password") %>
   </div>
 
   <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "New Password" %>
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: t("devise.new_password") %>
+    <%= f.label :password_confirmation, t("devise.confirm_password") %><br />
   </div>
 
   <div class="actions">
-    <%= f.submit "Change my password", class: "w-100 btn btn-lg btn-primary" %>
+    <%= f.submit t("devise.change_password"), class: "w-100 btn btn-lg btn-primary" %>
   </div>
 <% end %>
 

@@ -1,0 +1,44 @@
+version: "3"
+
+services:
+  rails:
+    container_name: bChat-rails
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+    environment:
+      POSTGRES_USER: rpbarata
+      POSTGRES_PASSWORD: rpbarata
+      REDIS_DB: 0
+      REDIS_URL: redis://127.0.0.1
+      REDIS_PORT: 6379
+
+    stdin_open: true
+    volumes:
+      - .:/project
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: bChat-postgres
+    image: postgres:13.1
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: rpbarata
+      POSTGRES_PASSWORD: rpbarata
+    ports:
+      - 5432:5432
+
+  redis:
+    container_name: "bChat-redis"
+    image: redis
+    restart: always
+    ports:
+      - 6379:6379
+
+volumes:
+  postgres_data:

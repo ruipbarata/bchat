@@ -1,0 +1,60 @@
+#!/usr/bin/env ruby
+
+module RootTesting
+  module_function
+
+  def run_all_with_coverage
+    with_coverage do
+      RootTesting.run_rubocop
+      RootTesting.run_eslint
+      RootTesting.run_rspec
+    end
+  end
+
+  def run_rubocop
+    require "rubocop"
+    require "benchmark"
+    cli = RuboCop::CLI.new
+    result = 0
+    time = Benchmark.realtime do
+      result = cli.run
+    end
+    puts "Finished in #{time} seconds" if cli.options[:debug]
+    exit result unless result == 0
+  end
+
+  def run_eslint
+    `npx eslint "app/javascript/**/*.js"`
+  end
+
+  def run_rspec
+    require "rspec/core"
+    $LOAD_PATH.unshift("spec")
+    require "rails_helper"
+    Dir.glob("spec/**/*_spec.rb").each { |f| require_relative(File.join("..", f)) }
+    RSpec::Core::Runner.invoke
+  end
+
+  def with_coverage(&block)
+    require "simplecov"
+    SimpleCov.start "rails" do
+      minimum_coverage 100
+      add_filter "lib/*"
+    end
+
+    block && block.call
+  end
+end
+
+test_type = ARGV.shift
+
+case test_type
+when "rubocop"
+  RootTesting.run_rubocop
+when "eslint"
+  RootTesting.run_eslint
+when "rspec"
+  RootTesting.run_rspec
+else
+  RootTesting.run_all_with_coverage
+end

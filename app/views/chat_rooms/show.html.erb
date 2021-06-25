@@ -6,10 +6,9 @@
 
 <%= form_for @message, url: "#", remote: true do |f| %>
   <div class="form-group">
-    <%= f.label :body %>
     <%= f.text_area :body, class: 'form-control' %>
-    <small class="text-muted">From 2 to 1000 characters</small>
+    <small class="text-muted"><%= t("chat_room.body_limit", min: 2, max: 1000) %></small>
   </div>
 
-  <%= f.submit "Post", class: 'btn btn-primary btn-lg' %>
+  <%= f.submit t("chat_room.send"), class: 'btn btn-primary btn-lg' %>
 <% end %>

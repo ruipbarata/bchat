@@ -1,0 +1,74 @@
+pt:
+  chat_room:
+    enter: Entrar %{chat_room_name}
+    new: Nova Sala
+    add: Criar Nova Sala de Chat
+    body_limit: De %{min} a %{max} caracteres
+    send: Enviar
+  message:
+    text: "%{name} a %{time} disse"
+  devise:
+    resend_confirmation_instructions: Reenviar instruções de confirmação
+    welcome: Bem-vindo %{email}!
+    confirmation_instruction: Pode confirmar o e-mail da sua conta através do seguinte link
+    confirm_account: Confirmar a minha conta
+    hello: Olá %{email}
+    contact_email: Estamos a contacta-lo para notificá de que o seu e-mail está a ser alterado para %{email}
+    password_changed: Estamos a contacta-lo para notificá de que sua senha foi alterada
+    reset_password_warning: Alguém solicitou um link para alterar sua senha. Pode fazer isso através do link abaixo.
+    change_password: Alterar a minha palavra-pass
+    change_password_1: Se não foste tu a pedir isto, ignora este email
+    change_password_1: A tua palavra-pass não irá mudar até que acesse o link acima e crie uma nova.
+    locked_account_warning: A tua conta foi bloqueada devido a um número excessivo de tentativas de login mal sucedidas
+    unlock_link: Clica no link a baixo para desbloquear a tua conta
+    unlock_account: Desbloquear a minha conta
+    minimum_characters: No mínimo %{min} caracteres
+    new_password: Nova palavra-pass
+    confirm_password: Confirmar a palavra-pass
+    forgot_password: Esqueceste-te da tua palavra-pass?
+    send_reset_password_instructions: Enviar para mim as instruções para repor a palavra pass
+    leave_password_black: (deixa em branco se não queres alterar)
+    edit: Editar %{name}
+    password: Palavra-chave
+    current_password: Palavra-pass atual
+    need_current_password: (precisamos da tua palavra-passa atual para confirmar as tuas mudanças)
+    cancel_account: Cancelar a minha conta
+    unhappy: Não estás satisfeito?
+    back: Voltar
+    are_you_sure: Tens a certeza?
+    waiting_confirmations: A aguardar confirmação para %{email}
+    sign_up: Registar
+    log_in: Entrar
+    didnt_received_confirmation: Não recebi as instruções de confirmação
+    didnt_received_lockable: Não recebi as instruções de desbloqueio
+    sign_in_with: Entrar com %{provider}
+
+  activerecord:
+    models:
+      chat_room:
+        one: Sala de Chat
+        other: Salas de Chat
+      message:
+        one: Mensagem
+        other: Mensagens
+      User:
+        one: Utilizador
+        other: Utilizadores
+    attributes:
+      chat_room:
+        id: ID
+        title: "Título"
+        created_at: Criado em
+        updated_at: Atualizado em
+        user_id: ID do utilizador
+      message:
+        id: ID
+        created_at: Criado em
+        updated_at: Atualizado em
+        body: Corpo
+        user_id: ID do utilizador
+      user:
+        id: ID
+        created_at: Criado em
+        updated_at: Atualizado em
+        email: Email
