@@ -6,7 +6,7 @@
 
 <%= form_for @message, url: "#", remote: true do |f| %>
   <div class="form-group">
-    <%= f.text_area :body, class: 'form-control' %>
+    <%= f.rich_text_area :body, class: 'form-control' %>
     <small class="text-muted"><%= t("chat_room.body_limit", min: 2, max: 1000) %></small>
   </div>
 

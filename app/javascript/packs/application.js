@@ -12,6 +12,8 @@ import "bootstrap";
 import "@fortawesome/fontawesome-free/css/all";
 
 require("./rails_sweetalert2");
+require("trix");
+require("@rails/actiontext");
 
 Rails.start();
 Turbolinks.start();
