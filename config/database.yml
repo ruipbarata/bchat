@@ -17,9 +17,13 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  # For details on connection pooling, see Rails configuration guide
-  # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV["DB_USER"] %>
+  password: <%= ENV["DB_USER_PASSWORD"] %>
+  host: <%= ENV["DB_HOST"] { "localhost" } %>
+  port: <%= ENV["DB_PORT"] { "5432" } %>
+  url: <%= ENV["DB_URL"] %>
+  # socket: <%= ENV["DB_SOCKET"] { "/tmp/mysql.sock" } %>
+  pool: <%= ENV["RAILS_MAX_THREADS"] { 5 } %>
 
 development:
   <<: *default
@@ -82,5 +86,3 @@ test:
 production:
   <<: *default
   database: bchat_production
-  username: bchat
-  password: <%= ENV['BCHAT_DATABASE_PASSWORD'] %>

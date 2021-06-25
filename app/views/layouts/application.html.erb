@@ -25,10 +25,16 @@
     </svg>
 
     <%= render partial: "layouts/shared/navbar" %>
-    <%= render partial: "layouts/shared/alerts_notices" %>
 
-    <div class="container">
-      <%= yield %>
-    </div>
-  </body>
-</html>
+    <div class="container-fluid">
+      <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+          <%= render partial: "layouts/shared/sidebar" %>
+        </div>
+        <div class="col py-3">
+          <%= render partial: "layouts/shared/alerts_notices" %>
+          <%= yield %>
+        </div>
+      </div>
+    </body>
+  </html>
