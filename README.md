@@ -1,5 +1,6 @@
 # bChat
 
+https://barata-chat.herokuapp.com/
 #### Dependencies
 -   [Ruby  _3.0.0_](https://www.ruby-lang.org/en/documentation/installation/)
 -   [Rails  _6.1.3_](http://rubyonrails.org/)
