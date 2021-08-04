@@ -1,4 +1,4 @@
-<% if user.has_avatar? %>
+<% if user.avatar? %>
   <%= image_tag user.final_avatar, class: css_classes %>
 <% else %>
   <%= image_tag "fallback/default_avatar.png", class: css_classes %>

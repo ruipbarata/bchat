@@ -45,7 +45,7 @@ class User < ApplicationRecord
     username || email.split("@")[0]
   end
 
-  def has_avatar?
+  def avatar?
     avatar.attached? || avatar_fb.present?
   end
 

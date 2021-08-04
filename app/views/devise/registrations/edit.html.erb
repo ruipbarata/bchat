@@ -1,6 +1,6 @@
 <h2><%= t("devise.edit", name: resource_name.to_s.humanize) %></h2>
 
-<% if current_user.has_avatar? %>
+<% if current_user.avatar? %>
   <%= render partial: "shared/avatar", locals: { user: current_user, css_classes: "avatar mb-3" } %>
 <% end %>
 
