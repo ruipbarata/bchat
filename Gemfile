@@ -23,10 +23,13 @@ gem "redis", "~> 4.0"
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem "image_processing", "~> 1.2"
 
 gem "devise"
-gem 'devise-i18n'
+gem "devise-i18n"
+gem "omniauth-facebook"
+gem "omniauth-rails_csrf_protection"
+gem "sinatra"
 
 gem "dotenv-rails"
 
@@ -38,9 +41,9 @@ gem "rails_semantic_logger"
 gem "bootsnap", ">= 1.4.4", require: false
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', '~> 1.2020', '>= 1.2020.6'
+gem "tzinfo-data", "~> 1.2020", ">= 1.2020.6"
 
-gem 'rails-i18n', '~> 6.0.0' # For 6.0.0 or higher
+gem "rails-i18n", "~> 6.0.0" # For 6.0.0 or higher
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

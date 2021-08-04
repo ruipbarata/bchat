@@ -1,11 +1,25 @@
 <h2><%= t("devise.edit", name: resource_name.to_s.humanize) %></h2>
 
+<% if current_user.has_avatar? %>
+  <%= render partial: "shared/avatar", locals: { user: current_user, css_classes: "avatar mb-3" } %>
+<% end %>
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="form-floating mb-3">
-    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "email@example.com" %>
+    <%= f.text_field :username, autofocus: true, class: "form-control", placeholder: "username" %>
+    <%= f.label :username %>
+  </div>
+
+  <div class="form-floating mb-3">
+    <%= f.email_field :email, class: "form-control", placeholder: "email@example.com" %>
     <%= f.label :email %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label "Avatar", class: "form-label" %>
+    <%= f.file_field :avatar, class: "form-control", type: "file" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
