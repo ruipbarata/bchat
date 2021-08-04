@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # == Schema Information
 #
 # Table name: users
@@ -27,8 +28,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[facebook]
+    :recoverable, :rememberable, :validatable,
+    :omniauthable, omniauth_providers: [:facebook]
 
   has_one_attached :avatar, dependent: :destroy
 
@@ -70,5 +71,4 @@ class User < ApplicationRecord
       user.avatar_fb = auth.info.image
     end
   end
-
 end

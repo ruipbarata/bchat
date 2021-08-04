@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 Rails.application.routes.draw do
   get "home/index"
   get "chat_rooms/index"
@@ -9,5 +10,4 @@ Rails.application.routes.draw do
 
   resources :chat_rooms, only: [:new, :create, :show, :index]
   root "home#index"
-
 end
