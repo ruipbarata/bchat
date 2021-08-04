@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # == Schema Information
 #
 # Table name: chat_rooms
@@ -17,8 +18,6 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class ChatRoom < ApplicationRecord
-
   belongs_to :user
   has_many :messages, dependent: :destroy
-
 end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # == Schema Information
 #
 # Table name: messages
@@ -19,7 +20,6 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Message < ApplicationRecord
-
   has_rich_text :body
   belongs_to :user
   belongs_to :chat_room
@@ -31,5 +31,4 @@ class Message < ApplicationRecord
   def timestamp
     created_at.strftime("%H:%M:%S %d %B %Y")
   end
-
 end
